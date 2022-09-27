@@ -10,7 +10,7 @@ export const Layout = ({ children }: LayoutProps) => {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <Header />
-        <main>{children}</main>
+        <main className={styles.content}>{children}</main>
         <Footer />
       </div>
     </div>

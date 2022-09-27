@@ -1,7 +1,8 @@
 .catalog {
-  height: 60vh;
-  width: 120vh;
-  background-color: rgba(0, 0, 0, 0.4);
+  left: 0;
+  height: 90vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
   position: fixed;
   border-radius: 10px;
   margin-top: 25px;
@@ -23,8 +24,15 @@
   padding: 25px;
   background: white;
   border-radius: 10px;
-  max-height: calc(70vh - 150px);
-  width: 100vh;
+  height: 80vh;
+  width: 90%;
   display: flex;
   justify-content: space-between;
+}
+.categories {
+  width: 35%;
+  margin-right: 25px;
+}
+.products {
+  width: 80%;
 }
