@@ -1,24 +1,27 @@
 import { Button, Input } from "@/components/index";
+import Link from "next/link";
 import { useState } from "react";
 import { Catalog } from "./catalog/Catalog";
 import styles from "./Header.module.scss";
 
 export const Header = () => {
-  const [showCatalog, setShowCatalog] = useState<boolean>(true);
+  const [showCatalog, setShowCatalog] = useState<boolean>(false);
 
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Button>Логотип</Button>
+        <Link href="/">
+          <Button>Логотип</Button>
+        </Link>
       </div>
       <div className={styles.catalog}>
+        <Button
+          className={styles.catalogBtn}
+          onClick={() => setShowCatalog(!showCatalog)}
+        >
+          Каталог
+        </Button>
         <div className={styles.dropdown}>
-          <Button
-            className={styles.catalogBtn}
-            onClick={() => setShowCatalog(!showCatalog)}
-          >
-            Каталог
-          </Button>
           <Catalog
             className={styles.catalogContent}
             active={showCatalog}
@@ -31,16 +34,22 @@ export const Header = () => {
         <Button>Поиск</Button>
       </div>
       <div className={styles.cart}>
-        <Button>Корзина</Button>
+        <Link href="/cart">
+          <Button>Корзина</Button>
+        </Link>
       </div>
       <div className={styles.favorites}>
-        <Button>Избранное</Button>
+        <Link href="/favorites">
+          <Button>Избранное</Button>
+        </Link>
       </div>
       <div className={styles.qr}>
         <Button>QR</Button>
       </div>
       <div className={styles.personal}>
-        <Button>Личный кабинет</Button>
+        <Link href="/personal">
+          <Button>Личный кабинет</Button>
+        </Link>
       </div>
     </header>
   );

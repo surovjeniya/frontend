@@ -3,6 +3,8 @@ import { CatalogProps } from "./Catalog.props";
 import cn from "classnames";
 import { useState } from "react";
 import { Categories } from "./categories/Categories";
+import { useGetAllCategoriesQuery } from "@/store/api/fakestore";
+import { Products } from "./products/Products";
 
 export const Catalog = ({
   active,
@@ -10,96 +12,7 @@ export const Catalog = ({
   className,
   ...props
 }: CatalogProps) => {
-  const [categories, setCategories] = useState([
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-    {
-      id: 1,
-      name: "Бытовая техника",
-    },
-  ]);
+  const { data: categories, error, isLoading } = useGetAllCategoriesQuery("");
 
   return (
     <div
@@ -117,7 +30,9 @@ export const Catalog = ({
         <div className={styles.categories}>
           <Categories categories={categories} />
         </div>
-        <div>Products</div>
+        <div className={styles.products}>
+          <Products />
+        </div>
       </div>
     </div>
   );

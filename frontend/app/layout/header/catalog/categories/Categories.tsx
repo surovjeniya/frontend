@@ -8,8 +8,8 @@ export const Categories = ({ categories }: CategoriesProps) => {
     <div className={styles.categories}>
       {categories?.length ? (
         <ul className={styles.categoriesList}>
-          {categories.map((item) => (
-            <li key={item?.id}>
+          {categories.map((item, index) => (
+            <li key={index}>
               <Category category={item} />
             </li>
           ))}
