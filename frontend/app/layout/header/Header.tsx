@@ -1,11 +1,16 @@
 import { Button, Input } from "@/components/index";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Catalog } from "./catalog/Catalog";
 import styles from "./Header.module.scss";
 
 export const Header = () => {
   const [showCatalog, setShowCatalog] = useState<boolean>(false);
+  const [search, setSearch] = useState<string>("");
+
+  const onSearchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
 
   return (
     <header className={styles.header}>
@@ -30,7 +35,7 @@ export const Header = () => {
         </div>
       </div>
       <div className={styles.search}>
-        <Input />
+        <Input value={search} onChange={onSearchHandler} />
         <Button>Поиск</Button>
       </div>
       <div className={styles.cart}>
