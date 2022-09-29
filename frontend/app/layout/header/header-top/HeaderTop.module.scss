@@ -1,0 +1,15 @@
+.topNavigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 5px !important;
+  a {
+    text-decoration: none;
+  }
+}
+.navItem {
+  margin-right: 5px;
+}
+.navLink {
+  text-decoration: none;
+}
